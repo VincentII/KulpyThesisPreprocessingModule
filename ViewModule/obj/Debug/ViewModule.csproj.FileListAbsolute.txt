@@ -1,0 +1,53 @@
+D:\Users\VincentII\Documents\Visual Studio 2017\sources\repos\ViewModule\ViewModule\bin\Debug\ViewModule.exe.config
+D:\Users\VincentII\Documents\Visual Studio 2017\sources\repos\ViewModule\ViewModule\bin\Debug\ViewModule.exe
+D:\Users\VincentII\Documents\Visual Studio 2017\sources\repos\ViewModule\ViewModule\bin\Debug\ViewModule.pdb
+D:\Users\VincentII\Documents\Visual Studio 2017\sources\repos\ViewModule\ViewModule\bin\Debug\Microsoft.Kinect.dll
+D:\Users\VincentII\Documents\Visual Studio 2017\sources\repos\ViewModule\ViewModule\bin\Debug\Microsoft.Kinect.Face.dll
+D:\Users\VincentII\Documents\Visual Studio 2017\sources\repos\ViewModule\ViewModule\bin\Debug\Microsoft.Kinect.Fusion.dll
+D:\Users\VincentII\Documents\Visual Studio 2017\sources\repos\ViewModule\ViewModule\bin\Debug\Microsoft.Kinect.Tools.dll
+D:\Users\VincentII\Documents\Visual Studio 2017\sources\repos\ViewModule\ViewModule\bin\Debug\Microsoft.Kinect.VisualGestureBuilder.dll
+D:\Users\VincentII\Documents\Visual Studio 2017\sources\repos\ViewModule\ViewModule\bin\Debug\Microsoft.Kinect.Wpf.Controls.dll
+D:\Users\VincentII\Documents\Visual Studio 2017\sources\repos\ViewModule\ViewModule\bin\Debug\Microsoft.Kinect.xml
+D:\Users\VincentII\Documents\Visual Studio 2017\sources\repos\ViewModule\ViewModule\bin\Debug\Microsoft.Kinect.Face.xml
+D:\Users\VincentII\Documents\Visual Studio 2017\sources\repos\ViewModule\ViewModule\bin\Debug\Microsoft.Kinect.Fusion.xml
+D:\Users\VincentII\Documents\Visual Studio 2017\sources\repos\ViewModule\ViewModule\bin\Debug\Microsoft.Kinect.Tools.xml
+D:\Users\VincentII\Documents\Visual Studio 2017\sources\repos\ViewModule\ViewModule\bin\Debug\Microsoft.Kinect.VisualGestureBuilder.xml
+D:\Users\VincentII\Documents\Visual Studio 2017\sources\repos\ViewModule\ViewModule\bin\Debug\Microsoft.Kinect.Wpf.Controls.xml
+D:\Users\VincentII\Documents\Visual Studio 2017\sources\repos\ViewModule\ViewModule\obj\Debug\ViewModule.csprojResolveAssemblyReference.cache
+D:\Users\VincentII\Documents\Visual Studio 2017\sources\repos\ViewModule\ViewModule\obj\Debug\MainWindow.g.cs
+D:\Users\VincentII\Documents\Visual Studio 2017\sources\repos\ViewModule\ViewModule\obj\Debug\App.g.cs
+D:\Users\VincentII\Documents\Visual Studio 2017\sources\repos\ViewModule\ViewModule\obj\Debug\ViewModule_MarkupCompile.cache
+D:\Users\VincentII\Documents\Visual Studio 2017\sources\repos\ViewModule\ViewModule\obj\Debug\ViewModule_MarkupCompile.lref
+D:\Users\VincentII\Documents\Visual Studio 2017\sources\repos\ViewModule\ViewModule\obj\Debug\MainWindow.baml
+D:\Users\VincentII\Documents\Visual Studio 2017\sources\repos\ViewModule\ViewModule\obj\Debug\ViewModule.g.resources
+D:\Users\VincentII\Documents\Visual Studio 2017\sources\repos\ViewModule\ViewModule\obj\Debug\ViewModule.Properties.Resources.resources
+D:\Users\VincentII\Documents\Visual Studio 2017\sources\repos\ViewModule\ViewModule\obj\Debug\ViewModule.csproj.GenerateResource.Cache
+D:\Users\VincentII\Documents\Visual Studio 2017\sources\repos\ViewModule\ViewModule\obj\Debug\ViewModule.csproj.CoreCompileInputs.cache
+D:\Users\VincentII\Documents\Visual Studio 2017\sources\repos\ViewModule\ViewModule\obj\Debug\ViewModule.exe
+D:\Users\VincentII\Documents\Visual Studio 2017\sources\repos\ViewModule\ViewModule\obj\Debug\ViewModule.pdb
+C:\Users\rafe0\OneDrive\Documents\ViewModule\ViewModule\bin\Debug\ViewModule.exe.config
+C:\Users\rafe0\OneDrive\Documents\ViewModule\ViewModule\obj\Debug\ViewModule.exe
+C:\Users\rafe0\OneDrive\Documents\ViewModule\ViewModule\obj\Debug\ViewModule.pdb
+C:\Users\rafe0\OneDrive\Documents\ViewModule\ViewModule\bin\Debug\ViewModule.exe
+C:\Users\rafe0\OneDrive\Documents\ViewModule\ViewModule\bin\Debug\ViewModule.pdb
+C:\Users\rafe0\OneDrive\Documents\ViewModule\ViewModule\bin\Debug\Microsoft.Kinect.dll
+C:\Users\rafe0\OneDrive\Documents\ViewModule\ViewModule\bin\Debug\Microsoft.Kinect.Face.dll
+C:\Users\rafe0\OneDrive\Documents\ViewModule\ViewModule\bin\Debug\Microsoft.Kinect.Fusion.dll
+C:\Users\rafe0\OneDrive\Documents\ViewModule\ViewModule\bin\Debug\Microsoft.Kinect.Tools.dll
+C:\Users\rafe0\OneDrive\Documents\ViewModule\ViewModule\bin\Debug\Microsoft.Kinect.VisualGestureBuilder.dll
+C:\Users\rafe0\OneDrive\Documents\ViewModule\ViewModule\bin\Debug\Microsoft.Kinect.Wpf.Controls.dll
+C:\Users\rafe0\OneDrive\Documents\ViewModule\ViewModule\bin\Debug\Microsoft.Kinect.xml
+C:\Users\rafe0\OneDrive\Documents\ViewModule\ViewModule\bin\Debug\Microsoft.Kinect.Face.xml
+C:\Users\rafe0\OneDrive\Documents\ViewModule\ViewModule\bin\Debug\Microsoft.Kinect.Fusion.xml
+C:\Users\rafe0\OneDrive\Documents\ViewModule\ViewModule\bin\Debug\Microsoft.Kinect.Tools.xml
+C:\Users\rafe0\OneDrive\Documents\ViewModule\ViewModule\bin\Debug\Microsoft.Kinect.VisualGestureBuilder.xml
+C:\Users\rafe0\OneDrive\Documents\ViewModule\ViewModule\bin\Debug\Microsoft.Kinect.Wpf.Controls.xml
+C:\Users\rafe0\OneDrive\Documents\ViewModule\ViewModule\obj\Debug\ViewModule.csprojResolveAssemblyReference.cache
+C:\Users\rafe0\OneDrive\Documents\ViewModule\ViewModule\obj\Debug\MainWindow.g.cs
+C:\Users\rafe0\OneDrive\Documents\ViewModule\ViewModule\obj\Debug\App.g.cs
+C:\Users\rafe0\OneDrive\Documents\ViewModule\ViewModule\obj\Debug\ViewModule_MarkupCompile.cache
+C:\Users\rafe0\OneDrive\Documents\ViewModule\ViewModule\obj\Debug\ViewModule_MarkupCompile.lref
+C:\Users\rafe0\OneDrive\Documents\ViewModule\ViewModule\obj\Debug\MainWindow.baml
+C:\Users\rafe0\OneDrive\Documents\ViewModule\ViewModule\obj\Debug\ViewModule.g.resources
+C:\Users\rafe0\OneDrive\Documents\ViewModule\ViewModule\obj\Debug\ViewModule.Properties.Resources.resources
+C:\Users\rafe0\OneDrive\Documents\ViewModule\ViewModule\obj\Debug\ViewModule.csproj.GenerateResource.Cache
