@@ -29,11 +29,18 @@ namespace PreProcessModule
         {
             IsRecording = true;
 
+            
+
             if (title.Equals("") || title == null)
                 title = "sample";
 
-            this.title = title + " Normalized";
-            Folder = this.title;
+
+            title.
+
+            Folder = title + " Normalized";
+            
+            this.title = title.Split('\\').ElementAt(title.Split('\\').Count() - 1);
+
 
             Directory.CreateDirectory(Folder);
         }
@@ -96,7 +103,9 @@ namespace PreProcessModule
             _hasEnumeratedPoints = false;
             if (list.Count == 0 || list == null) return;
 
-            Result = this.Folder + "\\" + DateTime.Now.ToString("yyy_MM_dd_HH_mm_ss") + ".csv";
+            
+
+            Result = this.Folder + "\\"+this.title + "(Normalized).csv";
 
             using (StreamWriter writer = new StreamWriter(Result))
             {

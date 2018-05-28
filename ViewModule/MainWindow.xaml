@@ -13,11 +13,12 @@
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
             <Canvas Name="canvas" Width="512" Height="424" Background="Black"/>
+            <CheckBox Content="Eneble View" HorizontalAlignment="Left" Margin="413,463,0,0" VerticalAlignment="Top" Name="CheckBoxView"/>
         </Grid>
         <Grid Grid.Row="1">
             <Slider Name="Slider_frame" HorizontalAlignment="Left" Margin="10,179,0,0" VerticalAlignment="Top" Width="497" ValueChanged="Slider_frame_ValueChanged"/>
             <Label Content="File:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-            <TextBox Name="Box_File" HorizontalAlignment="Left" Height="23" Margin="46,13,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="342"/>
+            <TextBox Name="Box_File" HorizontalAlignment="Left" Height="23" Margin="46,13,0,0" TextWrapping="Wrap" Text="Click DIR" VerticalAlignment="Top" Width="342"/>
 
             <Button Name="Btn_Load" Content="Load" HorizontalAlignment="Left" Margin="441,16,0,0" VerticalAlignment="Top" Width="75" Click="Load_Click"/>
 
@@ -25,6 +26,8 @@
 
             <CheckBox Content="Normalized View" HorizontalAlignment="Left" Margin="46,50,0,0" VerticalAlignment="Top" Width="123" Checked="EnableNormalize" Unchecked="DisableNormalize"/>
             <Button Content="Normalize" HorizontalAlignment="Left" Margin="393,50,0,0" VerticalAlignment="Top" Width="123" Click="Normalize_Click"/>
+            <Label  Content="ANNOT:" HorizontalAlignment="Left" Margin="340,84,0,0" VerticalAlignment="Top" Height="23" Width="54"/>
+            <Label Name="Label_Annot" Content="null" HorizontalAlignment="Left" Margin="393,84,0,0" VerticalAlignment="Top" Width="114" Background="Gray"/>
 
         </Grid>
 

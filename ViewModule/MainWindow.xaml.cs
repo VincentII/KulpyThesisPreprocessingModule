@@ -11,6 +11,8 @@ using System.Windows.Media;
 using System.Windows.Shapes;
 using System.Windows.Media.Media3D;
 using Microsoft.Kinect.Face;
+using LightBuzz.Vitruvius;
+
 
 namespace PreProcessModule
 {
@@ -23,6 +25,8 @@ namespace PreProcessModule
         private List<Ellipse> _points = new List<Ellipse>();
         private List<CameraSpacePoint> _vertices = new List<CameraSpacePoint>();
         private KinectSensor _sensor = KinectSensor.GetDefault();
+
+        private String[] _listName;
 
         private List<double> _columnsCSV;
         private List<List<double>> _rowsCSV;
@@ -41,6 +45,7 @@ namespace PreProcessModule
         private Boolean _printDebugs = false;
 
         private Boolean _isLoad = false;
+        private Boolean _isLoadMany = false;
 
         private Boolean _doNormalize = false;
 
@@ -140,7 +145,15 @@ namespace PreProcessModule
 
             if (!_isLoad) return;
 
-            FaceDataToVetices((int)(Slider_frame.Value/10*_rowsCSV.Count()));
+            int rowIndex = (int)(Slider_frame.Value / 10 *( _rowsCSV.Count()-1));
+            FaceDataToVetices(rowIndex);
+
+            if (_annotations[rowIndex] == null)
+            {
+                Label_Annot.Content = "null";
+            }
+            else
+                Label_Annot.Content = _annotations[rowIndex];
 
             if (_points.Count == 0)
             {
@@ -170,25 +183,32 @@ namespace PreProcessModule
                 Console.WriteLine("===================================================");
             }
 
-            for (int index = 0; index < _vertices.Count(); index++)
-            {
-                CameraSpacePoint vertice = _vertices[index];
-
-                if (_printDebugs)
+            if(CheckBoxView.IsChecked == true) { 
+                for (int index = 0; index < _vertices.Count(); index++)
                 {
-                    Console.WriteLine("Vertex X:" + vertice.X);
-                    Console.WriteLine("Vertex Y:" + vertice.Y);
-                    Console.WriteLine("Vertex Z:" + vertice.Z);
+                    CameraSpacePoint vertice = _vertices[index];
+
+                    if (_printDebugs)
+                    {
+                        Console.WriteLine("Vertex X:" + vertice.X);
+                        Console.WriteLine("Vertex Y:" + vertice.Y);
+                        Console.WriteLine("Vertex Z:" + vertice.Z);
+                    }
+
+                    DepthSpacePoint point = _sensor.CoordinateMapper.MapCameraPointToDepthSpace(vertice);
+     
+                    //CameraSpacePoint point = vertice;
+
+                    if (float.IsInfinity(point.X) || float.IsInfinity(point.Y))
+                    {
+                        return;
+                    }
+
+                    Ellipse ellipse = _points[index];
+
+                    Canvas.SetLeft(ellipse, point.X);
+                    Canvas.SetTop(ellipse, point.Y);
                 }
-
-                DepthSpacePoint point = _sensor.CoordinateMapper.MapCameraPointToDepthSpace(vertice);
-
-                if (float.IsInfinity(point.X) || float.IsInfinity(point.Y)) return;
-
-                Ellipse ellipse = _points[index];
-
-                Canvas.SetLeft(ellipse, point.X);
-                Canvas.SetTop(ellipse, point.Y);
             }
         }
 
@@ -197,11 +217,33 @@ namespace PreProcessModule
 
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "CSV (*.csv)|*.csv|All files (*.*)|*.*";
+            openFileDialog.Multiselect = true;
+            
             if (openFileDialog.ShowDialog() == true)
                Box_File.Text = (openFileDialog.FileName);
+
+            _listName = openFileDialog.FileNames;
+
         }
 
         private void Load_Click(object sender, RoutedEventArgs e)
+        {
+
+            if (_listName.Count() == 1) { 
+                LoadPoints(Box_File.Text);
+            
+                _isLoad = true;
+                _isLoadMany = false;
+                Slider_frame.Value = 0;
+                UpdateFacePoints();
+            }else if (_listName.Count() > 1)
+            {
+                _isLoad = false ;
+                _isLoadMany = true;
+            }
+        }
+
+        void LoadPoints(String file)
         {
             _rotationW = new List<double>();
             _rotationX = new List<double>();
@@ -210,7 +252,7 @@ namespace PreProcessModule
             _timeStamps = new List<String>();
             _annotations = new List<String>();
 
-            using (var reader = new StreamReader(Box_File.Text))
+            using (var reader = new StreamReader(file))
             {
                 reader.ReadLine();
                 reader.ReadLine();
@@ -220,7 +262,7 @@ namespace PreProcessModule
                 while (!reader.EndOfStream)
                 {
                     _columnsCSV = new List<double>();
-                    
+
 
                     var line = reader.ReadLine();
                     var values = line.Split(',');
@@ -234,17 +276,13 @@ namespace PreProcessModule
 
                     for (int i = 6; i < values.Length; i++)
                     {
-                        if(values[i]!=null && values[i] != "")
-                        _columnsCSV.Add(Double.Parse(values[i]));
+                        if (values[i] != null && values[i] != "")
+                            _columnsCSV.Add(Double.Parse(values[i]));
                     }
 
                     _rowsCSV.Add(_columnsCSV);
                 }
             }
-
-            _isLoad = true;
-            Slider_frame.Value = 0;
-            UpdateFacePoints();
         }
 
         private void Slider_frame_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -254,21 +292,33 @@ namespace PreProcessModule
 
         private void Normalize_Click(object sender, RoutedEventArgs e)
         {
-            CSVWriter csvWriter = new CSVWriter();
-            _outputList = new List<string>();
-
-            for(int rowIndex = 0; rowIndex < _rowsCSV.Count(); rowIndex++)
+            for(int i = 0; i < _listName.Count(); i++)
             {
-                Normalize(rowIndex, csvWriter);
+                String fname = _listName[i];
+                LoadPoints(fname);
+                
+                NormalizeWrite(fname);
             }
-
-            csvWriter.Stop(_outputList);
+            
             MessageBox.Show("Normalization Complete: File Saved");
         }
 
-        void Normalize(int rowIndex, CSVWriter csvWriter)
+        private void NormalizeWrite(String name)
         {
-            csvWriter.Start(Box_File.Text);
+            CSVWriter csvWriter = new CSVWriter();
+            _outputList = new List<string>();
+
+            for (int rowIndex = 0; rowIndex < _rowsCSV.Count(); rowIndex++)
+            {
+                Normalize(rowIndex, csvWriter, name);
+            }
+
+            csvWriter.Stop(_outputList);
+        }
+
+        void Normalize(int rowIndex, CSVWriter csvWriter, String name)
+        {
+            csvWriter.Start(name);
 
             if (rowIndex < 0 || rowIndex >= _rowsCSV.Count) rowIndex = 0;
             List<double> row = _rowsCSV[rowIndex];
@@ -292,6 +342,7 @@ namespace PreProcessModule
             Point3D headLocation = new Point3D(0, 0, 0);
             RotateTransform3D rotate3D = new RotateTransform3D(rotation3D, headLocation);
 
+            
             for (int i = 3; i < row.Count-3; i += 3)
             {
                 CameraSpacePoint vert = new CameraSpacePoint();
@@ -389,5 +440,7 @@ namespace PreProcessModule
         {
             _doNormalize = false;
         }
+
+       
     }
 }
