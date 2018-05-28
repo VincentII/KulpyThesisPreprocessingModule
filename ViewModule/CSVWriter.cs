@@ -34,8 +34,7 @@ namespace PreProcessModule
             if (title.Equals("") || title == null)
                 title = "sample";
 
-
-            title.
+            
 
             Folder = title + " Normalized";
             
