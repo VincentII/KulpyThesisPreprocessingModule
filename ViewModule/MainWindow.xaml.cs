@@ -230,7 +230,7 @@ namespace PreProcessModule
         {
 
             if (_listName.Count() == 1) { 
-                LoadPoints(Box_File.Text);
+                LoadPoints(_listName[0]);
             
                 _isLoad = true;
                 _isLoadMany = false;

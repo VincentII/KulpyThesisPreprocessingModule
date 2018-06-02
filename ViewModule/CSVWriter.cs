@@ -36,9 +36,9 @@ namespace PreProcessModule
 
             
 
-            Folder = title + " Normalized";
+            Folder = Directory.GetParent(title).FullName+"\\" + "Preprocessed";
             
-            this.title = title.Split('\\').ElementAt(title.Split('\\').Count() - 1);
+            this.title = title.Split('\\').ElementAt(title.Split('\\').Count() - 1).Split('.')[0];
 
 
             Directory.CreateDirectory(Folder);
@@ -104,7 +104,7 @@ namespace PreProcessModule
 
             
 
-            Result = this.Folder + "\\"+this.title + "(Normalized).csv";
+            Result = this.Folder + "\\"+this.title + "(Preprocessed).csv";
 
             using (StreamWriter writer = new StreamWriter(Result))
             {
